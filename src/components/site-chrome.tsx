@@ -15,13 +15,15 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:flex sm:justify-between">
         <Link to="/" className="min-w-0" aria-label="Mystic Pulse Capital home">
-          <img
-            src={banner.url}
-            alt="Mystic Pulse Capital"
-            className="h-10 w-auto object-contain object-left sm:h-12"
-            style={{ clipPath: "inset(28% 12% 28% 12%)", marginBlock: "-0.6rem" }}
-          />
+          <div className="relative h-11 w-[190px] max-w-full overflow-hidden sm:h-14 sm:w-[240px]">
+            <img
+              src={banner.url}
+              alt="Mystic Pulse Capital"
+              className="absolute left-1/2 top-1/2 w-[340px] max-w-none -translate-x-1/2 -translate-y-1/2 sm:w-[430px]"
+            />
+          </div>
         </Link>
+
         <nav className="hidden items-center gap-7 sm:flex">
           {NAV.map((n) => (
             <Link
