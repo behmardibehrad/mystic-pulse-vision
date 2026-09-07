@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
-import wordmark from "@/assets/mpc-wordmark.png.asset.json";
+import wordmark from "@/assets/mpc-wordmark-full.png.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -18,7 +18,7 @@ export function SiteHeader() {
           <img
             src={wordmark.url}
             alt="Mystic Pulse Capital — Every win. Every loss. Zero illusions."
-            className="h-12 w-auto max-w-full object-contain sm:h-14"
+            className="h-14 w-auto max-w-full object-contain sm:h-20"
           />
         </Link>
 
