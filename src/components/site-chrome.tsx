@@ -15,13 +15,11 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:flex sm:justify-between">
         <Link to="/" className="min-w-0" aria-label="Mystic Pulse Capital home">
-          <div className="relative h-11 w-[190px] max-w-full overflow-hidden sm:h-14 sm:w-[240px]">
-            <img
-              src={banner.url}
-              alt="Mystic Pulse Capital"
-              className="absolute left-1/2 top-1/2 w-[340px] max-w-none -translate-x-1/2 -translate-y-1/2 sm:w-[430px]"
-            />
-          </div>
+          <img
+            src={banner.url}
+            alt="Mystic Pulse Capital — Every win. Every loss. Zero illusions."
+            className="h-12 w-auto max-w-full object-contain sm:h-14"
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 sm:flex">
