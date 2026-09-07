@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BrokersRouteImport } from './routes/brokers'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as RecordRouteImport } from './routes/record'
 import { Route as TermsRouteImport } from './routes/terms'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +36,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RecordRoute = RecordRouteImport.update({
+  id: '/record',
+  path: '/record',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/brokers': typeof BrokersRoute
   '/privacy': typeof PrivacyRoute
+  '/record': typeof RecordRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/brokers': typeof BrokersRoute
   '/privacy': typeof PrivacyRoute
+  '/record': typeof RecordRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,16 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/brokers': typeof BrokersRoute
   '/privacy': typeof PrivacyRoute
+  '/record': typeof RecordRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/brokers' | '/privacy' | '/terms'
+  fullPaths: '/' | '/about' | '/brokers' | '/privacy' | '/record' | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/brokers' | '/privacy' | '/terms'
-  id: '__root__' | '/' | '/about' | '/brokers' | '/privacy' | '/terms'
+  to: '/' | '/about' | '/brokers' | '/privacy' | '/record' | '/terms'
+  id:
+    '__root__' | '/' | '/about' | '/brokers' | '/privacy' | '/record' | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +86,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BrokersRoute: typeof BrokersRoute
   PrivacyRoute: typeof PrivacyRoute
+  RecordRoute: typeof RecordRoute
   TermsRoute: typeof TermsRoute
 }
 
@@ -109,6 +120,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/record': {
+      id: '/record'
+      path: '/record'
+      fullPath: '/record'
+      preLoaderRoute: typeof RecordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -124,6 +142,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BrokersRoute: BrokersRoute,
   PrivacyRoute: PrivacyRoute,
+  RecordRoute: RecordRoute,
   TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport

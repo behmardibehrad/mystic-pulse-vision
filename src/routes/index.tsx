@@ -47,11 +47,7 @@ function Home() {
       <SiteHeader />
 
       <section className="relative overflow-hidden">
-        <img
-          src={hero.url}
-          alt="Mystic Pulse Capital hooded figure between a bull and bear market"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35"
-        />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,197,94,0.10),transparent_55%),radial-gradient(ellipse_at_bottom,rgba(239,68,68,0.08),transparent_55%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/80 to-background" />
         <div className="relative mx-auto max-w-4xl px-4 py-28 text-center sm:py-40">
           <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Market research & education</p>
@@ -89,7 +85,7 @@ function Home() {
         </section>
 
         <section className="mt-24 grid items-center gap-10 sm:grid-cols-[auto_minmax(0,1fr)]">
-          <img src={orb.url} alt="" className="mx-auto h-32 w-32 sm:h-40 sm:w-40" />
+          <img src="/favicon.png" alt="" className="mx-auto h-32 w-32 rounded-full sm:h-40 sm:w-40" />
           <div>
             <h2 className="font-display text-2xl tracking-wide text-foreground sm:text-3xl">
               No signals. No guarantees. No illusions.

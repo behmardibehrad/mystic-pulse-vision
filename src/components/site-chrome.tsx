@@ -1,10 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
-import wordmark from "@/assets/mystic-pulse-capital-logo.jpg.asset.json";
+import wordmark from "@/assets/mpc-wordmark.png";
 
 const NAV = [
   { to: "/", label: "Home" },
+  { to: "/record", label: "The Record" },
   { to: "/brokers", label: "Brokers" },
   { to: "/about", label: "About" },
 ] as const;
@@ -20,7 +21,7 @@ export function SiteHeader() {
           aria-label="Mystic Pulse Capital home"
         >
           <img
-            src={wordmark.url}
+            src={wordmark}
             alt="Mystic Pulse Capital — Every win. Every loss. Zero illusions."
             className="block h-auto w-full object-contain object-center"
           />

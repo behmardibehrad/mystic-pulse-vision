@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter, PageShell } from "@/components/site-chrome";
-import hero from "@/assets/mpc-hero.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
