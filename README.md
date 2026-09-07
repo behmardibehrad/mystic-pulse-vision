@@ -1,14 +1,16 @@
-# Welcome to your Lovable project
+# Mystic Pulse Capital Hub
+
+Build the requested dark, professional, mobile-responsive financial content website for Mystic Pulse Capital. Use the attached brand assets exactly as instructed: wordmark in header linking home, hooded-figure artwork as subtle Home hero anchor and About image, no recoloring/restyling. Include Home, /brokers, /about, /privacy, /terms and global responsive navigation/footer. Follow all provided content, disclosures, disclaimer, palette, and visual direction. No login or accounts.
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/d79d363c-cb3f-4c08-94cc-1c5a58819a67).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +22,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
