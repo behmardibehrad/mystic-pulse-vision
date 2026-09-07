@@ -80,10 +80,10 @@ export function SiteFooter() {
               illusions.
             </p>
             <div className="mt-4 flex gap-5 text-sm">
-              <a href="https://youtube.com/channel/UCmGfRBvd76cfQUq1TXRsLtA" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">YouTube</a>
+              <a href="https://www.youtube.com/@MysticPulseCapital" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">YouTube</a>
               <a href="https://x.com/MysticPulseCap" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">X</a>
               <a href="https://instagram.com/mysticpulsecapital" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">Instagram</a>
-              <a href="https://facebook.com/874703369067157" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">Facebook</a>
+              <a href="https://www.facebook.com/people/Mystic-Pulse-Capital/61585497668130/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">Facebook</a>
             </div>
           </div>
           <nav className="grid grid-cols-2 gap-x-10 gap-y-2 text-sm">
