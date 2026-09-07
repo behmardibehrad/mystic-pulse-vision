@@ -1,1 +1,1 @@
-- [ ] Replace the header logo with the latest uploaded artwork and ensure the full tagline is visible.
+- [x] Replace the header logo with the latest uploaded artwork and ensure the full tagline is visible.
