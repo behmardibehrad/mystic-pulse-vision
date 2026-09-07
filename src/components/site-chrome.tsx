@@ -13,12 +13,16 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
-      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:flex sm:justify-between">
-        <Link to="/" className="min-w-0" aria-label="Mystic Pulse Capital home">
+      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:flex sm:justify-between sm:gap-6">
+        <Link
+          to="/"
+          className="block w-[min(21rem,calc(100vw-5.25rem))] shrink-0 overflow-visible"
+          aria-label="Mystic Pulse Capital home"
+        >
           <img
             src={wordmark.url}
             alt="Mystic Pulse Capital — Every win. Every loss. Zero illusions."
-            className="h-14 w-auto max-w-full object-contain sm:h-20"
+            className="block h-auto w-full object-contain"
           />
         </Link>
 
