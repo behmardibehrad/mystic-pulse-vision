@@ -1,0 +1,1 @@
+- [x] Ensure the full header wordmark and tagline are never cropped
