@@ -16,7 +16,7 @@ export function SiteHeader() {
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:flex sm:justify-between">
         <Link to="/" className="min-w-0" aria-label="Mystic Pulse Capital home">
           <img
-            src={banner.url}
+            src={wordmark.url}
             alt="Mystic Pulse Capital — Every win. Every loss. Zero illusions."
             className="h-12 w-auto max-w-full object-contain sm:h-14"
           />
