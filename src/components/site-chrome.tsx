@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
-import wordmark from "@/assets/mpc-wordmark-full.png.asset.json";
+import wordmark from "@/assets/mystic-pulse-capital-logo.jpg.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -16,13 +16,13 @@ export function SiteHeader() {
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:flex sm:justify-between sm:gap-6">
         <Link
           to="/"
-          className="block w-[min(21rem,calc(100vw-5.25rem))] shrink-0 overflow-visible"
+          className="block w-[min(14rem,calc(100vw-5.25rem))] min-w-0 shrink-0 overflow-visible sm:w-72"
           aria-label="Mystic Pulse Capital home"
         >
           <img
             src={wordmark.url}
             alt="Mystic Pulse Capital — Every win. Every loss. Zero illusions."
-            className="block h-auto w-full object-contain"
+            className="block h-auto w-full object-contain object-center"
           />
         </Link>
 
