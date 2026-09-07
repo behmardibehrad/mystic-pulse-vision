@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import emblem from "@/assets/mpc-emblem.png";
 import { SiteHeader, SiteFooter, PageShell } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/about")({
@@ -29,7 +30,7 @@ function About() {
         intro="We write about markets the way they actually behave: uneven, unforgiving and indifferent to conviction."
       >
         <img
-          src={hero.url}
+          src={emblem}
           alt="Mystic Pulse Capital brand artwork: a hooded figure between a bull and a bear market"
           className="w-full rounded-lg border border-border/60"
         />

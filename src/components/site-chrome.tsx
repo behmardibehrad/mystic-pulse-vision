@@ -17,7 +17,7 @@ export function SiteHeader() {
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:flex sm:justify-between sm:gap-6">
         <Link
           to="/"
-          className="block w-[min(14rem,calc(100vw-5.25rem))] min-w-0 shrink-0 overflow-visible sm:w-72"
+          className="block min-w-0 shrink-0 overflow-visible" style={{ width: "min(16rem, 60vw)" }}
           aria-label="Mystic Pulse Capital home"
         >
           <img

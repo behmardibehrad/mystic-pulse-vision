@@ -1,8 +1,7 @@
+import emblem from "@/assets/mpc-emblem-round.png";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { LineChart, ShieldCheck, BookOpen, ArrowRight } from "lucide-react";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
-import hero from "@/assets/mpc-hero.jpg.asset.json";
-import orb from "@/assets/mpc-orb.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -85,7 +84,7 @@ function Home() {
         </section>
 
         <section className="mt-24 grid items-center gap-10 sm:grid-cols-[auto_minmax(0,1fr)]">
-          <img src="/favicon.png" alt="" className="mx-auto h-32 w-32 rounded-full sm:h-40 sm:w-40" />
+          <img src={emblem} alt="" className="mx-auto h-32 w-32 rounded-full sm:h-40 sm:w-40" />
           <div>
             <h2 className="font-display text-2xl tracking-wide text-foreground sm:text-3xl">
               No signals. No guarantees. No illusions.
