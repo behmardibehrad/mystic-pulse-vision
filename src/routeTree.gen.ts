@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BrokersRouteImport } from './routes/brokers'
+import { Route as DailyRouteImport } from './routes/daily'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RecordRouteImport } from './routes/record'
 import { Route as TermsRouteImport } from './routes/terms'
@@ -29,6 +30,11 @@ const AboutRoute = AboutRouteImport.update({
 const BrokersRoute = BrokersRouteImport.update({
   id: '/brokers',
   path: '/brokers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DailyRoute = DailyRouteImport.update({
+  id: '/daily',
+  path: '/daily',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/brokers': typeof BrokersRoute
+  '/daily': typeof DailyRoute
   '/privacy': typeof PrivacyRoute
   '/record': typeof RecordRoute
   '/terms': typeof TermsRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/brokers': typeof BrokersRoute
+  '/daily': typeof DailyRoute
   '/privacy': typeof PrivacyRoute
   '/record': typeof RecordRoute
   '/terms': typeof TermsRoute
@@ -68,23 +76,33 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/brokers': typeof BrokersRoute
+  '/daily': typeof DailyRoute
   '/privacy': typeof PrivacyRoute
   '/record': typeof RecordRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/brokers' | '/privacy' | '/record' | '/terms'
+  fullPaths:
+    '/' | '/about' | '/brokers' | '/daily' | '/privacy' | '/record' | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/brokers' | '/privacy' | '/record' | '/terms'
+  to: '/' | '/about' | '/brokers' | '/daily' | '/privacy' | '/record' | '/terms'
   id:
-    '__root__' | '/' | '/about' | '/brokers' | '/privacy' | '/record' | '/terms'
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/brokers'
+    | '/daily'
+    | '/privacy'
+    | '/record'
+    | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BrokersRoute: typeof BrokersRoute
+  DailyRoute: typeof DailyRoute
   PrivacyRoute: typeof PrivacyRoute
   RecordRoute: typeof RecordRoute
   TermsRoute: typeof TermsRoute
@@ -111,6 +129,13 @@ declare module '@tanstack/react-router' {
       path: '/brokers'
       fullPath: '/brokers'
       preLoaderRoute: typeof BrokersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/daily': {
+      id: '/daily'
+      path: '/daily'
+      fullPath: '/daily'
+      preLoaderRoute: typeof DailyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -141,6 +166,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BrokersRoute: BrokersRoute,
+  DailyRoute: DailyRoute,
   PrivacyRoute: PrivacyRoute,
   RecordRoute: RecordRoute,
   TermsRoute: TermsRoute,

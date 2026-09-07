@@ -5,6 +5,7 @@ import wordmark from "@/assets/mpc-wordmark.png";
 
 const NAV = [
   { to: "/", label: "Home" },
+  { to: "/daily", label: "Daily" },
   { to: "/record", label: "The Record" },
   { to: "/brokers", label: "Brokers" },
   { to: "/about", label: "About" },
