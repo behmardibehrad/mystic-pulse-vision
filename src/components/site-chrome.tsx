@@ -79,6 +79,12 @@ export function SiteFooter() {
               <span className="text-bull">Every win.</span> <span className="text-bear">Every loss.</span> Zero
               illusions.
             </p>
+            <div className="mt-4 flex gap-5 text-sm">
+              <a href="https://youtube.com/channel/UCmGfRBvd76cfQUq1TXRsLtA" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">YouTube</a>
+              <a href="https://x.com/MysticPulseCap" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">X</a>
+              <a href="https://instagram.com/mysticpulsecapital" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">Instagram</a>
+              <a href="https://facebook.com/874703369067157" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">Facebook</a>
+            </div>
           </div>
           <nav className="grid grid-cols-2 gap-x-10 gap-y-2 text-sm">
             {[...NAV, { to: "/privacy", label: "Privacy" }, { to: "/terms", label: "Terms" }].map((n) => (
