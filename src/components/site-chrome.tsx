@@ -17,13 +17,13 @@ export function SiteHeader() {
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:flex sm:justify-between sm:gap-6">
         <Link
           to="/"
-          className="block min-w-0 shrink-0 overflow-visible" style={{ width: "min(16rem, 60vw)" }}
+          className="block min-w-0 shrink-0" style={{ lineHeight: 0 }}
           aria-label="Mystic Pulse Capital home"
         >
           <img
             src={wordmark}
             alt="Mystic Pulse Capital — Every win. Every loss. Zero illusions."
-            className="block h-auto w-full object-contain object-center"
+            className="block object-contain" style={{ height: "3.25rem", width: "auto", maxWidth: "60vw" }}
           />
         </Link>
 
