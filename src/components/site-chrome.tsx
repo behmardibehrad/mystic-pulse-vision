@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
-import banner from "@/assets/mpc-banner.png.asset.json";
+import wordmark from "@/assets/mpc-wordmark.png.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
