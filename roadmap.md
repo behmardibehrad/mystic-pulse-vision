@@ -1,1 +1,1 @@
-- [x] Ensure the full header wordmark and tagline are never cropped
+- [x] Replace the header logo with the latest uploaded artwork and ensure the full tagline is visible.
