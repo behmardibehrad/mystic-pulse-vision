@@ -24,6 +24,7 @@ const SEGMENTS: { key: string; label: string }[] = [
   { key: "postmarket", label: "Post-Market Verdict" },
   { key: "earnings", label: "Earnings" },
   { key: "fed", label: "Fed Report" },
+  { key: "session", label: "Session Recap" },
   { key: "live", label: "Live Trading" },
 ];
 
