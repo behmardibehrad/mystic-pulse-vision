@@ -15,6 +15,7 @@ import { Route as BrokersRouteImport } from './routes/brokers'
 import { Route as DailyRouteImport } from './routes/daily'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RecordRouteImport } from './routes/record'
+import { Route as ScannerRouteImport } from './routes/scanner'
 import { Route as TermsRouteImport } from './routes/terms'
 
 const IndexRoute = IndexRouteImport.update({
@@ -47,6 +48,11 @@ const RecordRoute = RecordRouteImport.update({
   path: '/record',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ScannerRoute = ScannerRouteImport.update({
+  id: '/scanner',
+  path: '/scanner',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/daily': typeof DailyRoute
   '/privacy': typeof PrivacyRoute
   '/record': typeof RecordRoute
+  '/scanner': typeof ScannerRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/daily': typeof DailyRoute
   '/privacy': typeof PrivacyRoute
   '/record': typeof RecordRoute
+  '/scanner': typeof ScannerRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
@@ -79,14 +87,30 @@ export interface FileRoutesById {
   '/daily': typeof DailyRoute
   '/privacy': typeof PrivacyRoute
   '/record': typeof RecordRoute
+  '/scanner': typeof ScannerRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/brokers' | '/daily' | '/privacy' | '/record' | '/terms'
+    | '/'
+    | '/about'
+    | '/brokers'
+    | '/daily'
+    | '/privacy'
+    | '/record'
+    | '/scanner'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/brokers' | '/daily' | '/privacy' | '/record' | '/terms'
+  to:
+    | '/'
+    | '/about'
+    | '/brokers'
+    | '/daily'
+    | '/privacy'
+    | '/record'
+    | '/scanner'
+    | '/terms'
   id:
     | '__root__'
     | '/'
@@ -95,6 +119,7 @@ export interface FileRouteTypes {
     | '/daily'
     | '/privacy'
     | '/record'
+    | '/scanner'
     | '/terms'
   fileRoutesById: FileRoutesById
 }
@@ -105,6 +130,7 @@ export interface RootRouteChildren {
   DailyRoute: typeof DailyRoute
   PrivacyRoute: typeof PrivacyRoute
   RecordRoute: typeof RecordRoute
+  ScannerRoute: typeof ScannerRoute
   TermsRoute: typeof TermsRoute
 }
 
@@ -152,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RecordRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/scanner': {
+      id: '/scanner'
+      path: '/scanner'
+      fullPath: '/scanner'
+      preLoaderRoute: typeof ScannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -169,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   DailyRoute: DailyRoute,
   PrivacyRoute: PrivacyRoute,
   RecordRoute: RecordRoute,
+  ScannerRoute: ScannerRoute,
   TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
