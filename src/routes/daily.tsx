@@ -9,7 +9,7 @@ export const Route = createFileRoute("/daily")({
       {
         name: "description",
         content:
-          "Every daily brief and verdict, archived. Pick a day: pre-market, post-market, earnings and Fed coverage.",
+          "Every daily brief and verdict, archived. Pick a day: pre-market, earnings watch, Fed coverage, the post-market verdict and earnings results.",
       },
       { property: "og:title", content: "Daily Archive — Mystic Pulse Capital" },
     ],
@@ -19,13 +19,16 @@ export const Route = createFileRoute("/daily")({
 
 const CARDS_BASE = "https://cards.mysticpulsecapital.com";
 
+// in chronological order of the trading day
 const SEGMENTS: { key: string; label: string }[] = [
   { key: "premarket", label: "Pre-Market Brief" },
+  { key: "fed-preview", label: "Fed Day" },
+  { key: "earnings-preview", label: "Earnings Watch" },
+  { key: "fed-results", label: "Fed Decision" },
   { key: "postmarket", label: "Post-Market Verdict" },
-  { key: "earnings", label: "Earnings" },
-  { key: "fed", label: "Fed Report" },
   { key: "session", label: "Session Recap" },
   { key: "live", label: "Live Trading" },
+  { key: "earnings-results", label: "Earnings Results" },
 ];
 
 const VERDICT_CLASS: Record<string, string> = {
@@ -79,7 +82,7 @@ function DailyPage() {
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             Pick a day. The pre-market brief, the post-market verdict, and — when they happen —
-            earnings and Fed coverage. Published daily, archived forever.
+            earnings watch, earnings results, and full Fed-day coverage. Published daily, archived forever.
           </p>
         </section>
 
