@@ -105,16 +105,16 @@ export function SiteFooter() {
           </nav>
         </div>
         <p className="mt-10 border-t border-border/60 pt-6 text-xs leading-relaxed text-muted-foreground">
-          <strong className="text-foreground">Risk disclaimer:</strong> Mystic Pulse Capital publishes educational
-          and informational content only. Nothing on this site is financial, investment, tax, or legal advice, and no
+          <strong className="text-foreground">Risk disclaimer:</strong> Mystic Pulse Capital is one person's
+          trading journal made public, alongside educational and informational content. Nothing on this site is financial, investment, tax, or legal advice, and no
           content constitutes a recommendation to buy or sell any instrument. Trading foreign exchange, derivatives,
           and other leveraged products carries a high level of risk and can result in the loss of all deposited funds.
           Past performance is never a guarantee of future results. You alone are responsible for your decisions.
         </p>
         <p className="mt-4 text-xs text-muted-foreground">
           <strong className="text-foreground">Affiliate disclosure:</strong> Some outbound links to brokers and tools
-          may be affiliate links. If you open an account through them we may earn a commission at no additional cost
-          to you. This never changes our assessments or the order in which providers appear.
+          may be affiliate links. If you open an account through them I may earn a commission at no additional cost
+          to you. This never changes my assessments or the order in which providers appear.
         </p>
         <p className="mt-6 text-xs text-muted-foreground">
           © {new Date().getFullYear()} Mystic Pulse Capital. All rights reserved.
