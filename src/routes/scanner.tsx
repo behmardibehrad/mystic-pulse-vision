@@ -9,7 +9,7 @@ export const Route = createFileRoute("/scanner")({
       {
         name: "description",
         content:
-          "Live output from our in-house market scanner: what the systems are watching right now. Data, not recommendations.",
+          "Live output from the market scanner I built and run myself: what my system is watching right now. Data, not recommendations.",
       },
       { property: "og:title", content: "The Machine — Mystic Pulse Capital" },
     ],
@@ -69,10 +69,10 @@ function ScannerPage() {
         <section className="pt-16 text-center sm:pt-20">
           <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">The Machine</p>
           <h1 className="mt-6 font-display text-3xl leading-tight tracking-wide text-foreground sm:text-5xl">
-            What our systems are watching.
+            What my machine is watching.
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Live output from the scanner we built and run ourselves — a {data?.universe_size ?? "~450"}-name
+            Live output from the scanner I built and run myself — a {data?.universe_size ?? "~1,400"}-name
             universe screened for unusual price and volume. This is raw machine output.{" "}
             <span className="text-foreground">It is not a recommendation to buy or sell anything.</span>
           </p>

@@ -81,6 +81,10 @@ export function SiteFooter() {
               <span className="text-bull">Every win.</span> <span className="text-bear">Every loss.</span> Zero
               illusions.
             </p>
+            <p className="mt-3 text-xs leading-relaxed text-muted-foreground/80">
+              This site is one person's trading journal made public. Nothing here is financial advice or a
+              recommendation to buy or sell anything. Some broker links are affiliate links.
+            </p>
             <div className="mt-4 flex gap-5 text-sm">
               <a href="https://www.youtube.com/@MysticPulseCapital" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">YouTube</a>
               <a href="https://x.com/MysticPulseCap" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">X</a>
