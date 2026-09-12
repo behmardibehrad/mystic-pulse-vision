@@ -97,16 +97,14 @@ function MorningPage() {
 
   useEffect(() => {
     const load = async () => {
-      try {
-        const today = await fetch(`${CARDS_BASE}/feed/premarket-${etToday()}.json`);
-        if (today.ok) { setFeed(await today.json()); setMissing(false); return; }
-        const idx = await fetch(`${CARDS_BASE}/feed/index.json`).then((r) => r.json());
-        const latest = idx?.days?.[0];
-        if (!latest) { setMissing(true); return; }
-        const prev = await fetch(`${CARDS_BASE}/feed/premarket-${latest}.json`);
-        if (prev.ok) { setFeed(await prev.json()); setMissing(false); }
-        else setMissing(true);
-      } catch { setMissing(true); }
+    const get = (u: string) =>
+      fetch(u).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+      const today = await get(`${CARDS_BASE}/feed/premarket-${etToday()}.json`);
+      if (today) { setFeed(today); setMissing(false); return; }
+      const idx = await get(`${CARDS_BASE}/feed/index.json`);
+      const latest = idx?.days?.[0];
+      const prev = latest ? await get(`${CARDS_BASE}/feed/premarket-${latest}.json`) : null;
+      if (prev) { setFeed(prev); setMissing(false); } else setMissing(true);
     };
     load();
     const t = setInterval(load, 5 * 60 * 1000);
