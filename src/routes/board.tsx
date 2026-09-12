@@ -33,12 +33,24 @@ type Ctx = {
   vix?: number; vix_regime?: string; spy_premarket_pct?: number;
   days_to_fomc?: number | null; days_to_cpi?: number | null;
 };
+type Rating = {
+  symbol: string; direction: "BUY" | "SELL"; conviction: number;
+  tier?: string; reasons?: string[]; scored_at?: string;
+  bull_share_90d_pct?: number | null;
+};
+type RatingsMeta = {
+  scored_today_total?: number; published?: number;
+  baseline_bull_share_pct?: number; label?: string; note?: string;
+  performance?: { window_days?: number; strong_hit_rate_pct?: number; resolved?: number } | null;
+};
 type Board = {
   date: string; generated_at_utc: string; disclaimer: string;
   decided_at_utc?: string | null;
   market_context?: Ctx;
   picks: Pick[];
   watch?: { symbol: string; score?: number; note?: string }[];
+  news_ratings?: Rating[];
+  news_ratings_meta?: RatingsMeta;
   note?: string;
 };
 
@@ -250,6 +262,59 @@ function BoardPage() {
                       <span className="font-bold text-foreground">{w.symbol}</span>
                       {w.score != null && <span className="ml-2 text-muted-foreground">{w.score}</span>}
                     </span>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {!!board.news_ratings?.length && (
+              <section className="mt-14">
+                <h2 className="font-display text-xl tracking-wide text-foreground">
+                  {board.news_ratings_meta?.label ?? "AI news scorer"}
+                </h2>
+                {board.news_ratings_meta?.note && (
+                  <p className="mt-2 text-xs text-muted-foreground">{board.news_ratings_meta.note}</p>
+                )}
+                {board.news_ratings_meta && (
+                  <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
+                    {board.news_ratings_meta.scored_today_total ?? "?"} scored today ·{" "}
+                    {board.news_ratings_meta.published ?? board.news_ratings.length} published (7+) ·
+                    universe baseline {board.news_ratings_meta.baseline_bull_share_pct?.toFixed(0) ?? "—"}% bullish
+                  </p>
+                )}
+                {board.news_ratings_meta?.performance?.strong_hit_rate_pct != null && (
+                  <p className="mt-2 rounded-md border border-border/60 bg-card/50 px-3 py-2 text-xs text-muted-foreground">
+                    Scorer record: strong (9–10) ratings hit{" "}
+                    <span className="font-bold text-foreground">
+                      {board.news_ratings_meta.performance.strong_hit_rate_pct.toFixed(0)}%
+                    </span>{" "}
+                    over {board.news_ratings_meta.performance.resolved} resolved calls.
+                  </p>
+                )}
+                <div className="mt-4 space-y-3">
+                  {board.news_ratings.map((r, i) => (
+                    <div key={`${r.symbol}-${i}`} className="rounded-lg border border-border/40 bg-card/30 p-4">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span className="font-bold text-foreground">{r.symbol}</span>
+                        <span className={`rounded border px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${r.direction === "BUY" ? "border-bull/60 text-bull" : "border-bear/60 text-bear"}`}>
+                          {r.direction}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          {r.conviction}/10{r.tier ? ` · ${r.tier}` : ""}
+                        </span>
+                        {r.bull_share_90d_pct != null && (
+                          <span className="text-xs text-muted-foreground">
+                            {r.bull_share_90d_pct.toFixed(0)}% bullish vs{" "}
+                            {board.news_ratings_meta?.baseline_bull_share_pct?.toFixed(0) ?? "—"}% baseline
+                          </span>
+                        )}
+                      </div>
+                      {!!r.reasons?.length && (
+                        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                          {r.reasons.join(" · ")}
+                        </p>
+                      )}
+                    </div>
                   ))}
                 </div>
               </section>
