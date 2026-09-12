@@ -4,6 +4,8 @@ import { Menu, X } from "lucide-react";
 import wordmark from "@/assets/mpc-wordmark.png";
 
 const NAV = [
+  { to: "/morning", label: "Morning" },
+  { to: "/board", label: "Board" },
   { to: "/", label: "Home" },
   { to: "/daily", label: "Daily" },
   { to: "/record", label: "The Record" },
