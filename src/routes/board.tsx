@@ -66,7 +66,7 @@ const REGIME_TONE: Record<string, string> = {
   low: "text-bull", mid: "text-foreground", high: "text-pulse", extreme: "text-bear",
 };
 
-function PickCard({ p }: { p: Pick }) {
+function PickCard({ p, rating }: { p: Pick; rating?: Rating }) {
   const long = p.direction === "long";
   const res = p.result;
   return (
@@ -81,11 +81,21 @@ function PickCard({ p }: { p: Pick }) {
             <span className="rounded border border-bear/60 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-bear">SSR</span>
           )}
         </div>
-        {p.conviction != null && (
-          <span className="text-sm text-muted-foreground">
-            conviction <span className="font-bold text-foreground">{p.conviction}/10</span>
-          </span>
-        )}
+        <span className="flex items-center gap-4 text-sm text-muted-foreground">
+          {rating && (
+            <span>
+              AI scorer{" "}
+              <span className={`font-bold ${rating.direction === "BUY" ? "text-bull" : "text-bear"}`}>
+                {rating.direction} {rating.conviction}/10
+              </span>
+            </span>
+          )}
+          {p.conviction != null && (
+            <span>
+              conviction <span className="font-bold text-foreground">{p.conviction}/10</span>
+            </span>
+          )}
+        </span>
       </div>
 
       <p className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">
@@ -237,7 +247,13 @@ function BoardPage() {
               {board.picks.length === 0 && (
                 <p className="text-center text-sm text-muted-foreground">No picks this day — passing is a position too.</p>
               )}
-              {board.picks.map((p, i) => <PickCard key={`${p.symbol}-${i}`} p={p} />)}
+              {board.picks.map((p, i) => (
+                <PickCard
+                  key={`${p.symbol}-${i}`}
+                  p={p}
+                  rating={board.news_ratings?.find((r) => r.symbol === p.symbol)}
+                />
+              ))}
             </div>
 
             {board.decided_at_utc && (
